@@ -3,8 +3,10 @@ name = "todo_mvc"
 version = "0.0.1"
 edition = "2021"
 
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
 [dependencies]
-tokio = {version = "1", features = ["full"]}
+tokio = { version = "1", features = ["full"] }
 futures = "0.3"
 thiserror = "1.0"
 # JSON Libs
@@ -14,5 +16,5 @@ serde_derive = "1.0"
 # Web Libs
 warp = "0.3"
 # DB Libs
-sqlx = {version = "0.5", features= ["runtime-tokio-rustls","postgres"]}
+sqlx = { version = "0.5", features = ["runtime-tokio-rustls", "postgres"] }
 sqlb = "0.0.7"
