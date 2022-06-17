@@ -1,0 +1,10 @@
+.*
+!.gitignore
+
+# Rust Dev Assets
+target/
+
+# Nodejs Dev Assets
+node_modules/
+
+# JS will be compiled from .ts

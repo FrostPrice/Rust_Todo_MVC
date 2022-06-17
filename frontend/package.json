@@ -1,0 +1,10 @@
+{
+  "name": "todo-mvc-ui",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Todo MVC FrontEnd",
+  "dependencies": {},
+  "devDependencies": {},
+  "author": "Mateus Barbosa",
+  "license": "MIT"
+}
