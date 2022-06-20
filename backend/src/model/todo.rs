@@ -2,7 +2,7 @@ use sqlb::HasFields;
 use sqlx::query_as;
 
 use super::db::Db;
-use crate::model;
+use crate::{model, security::UserCtx};
 
 // region: Todo Types
 #[derive(sqlx::FromRow, Debug, Clone)]
@@ -33,7 +33,7 @@ sqlb::bindable!(TodoStatus);
 pub struct TodoMac;
 
 impl TodoMac {
-    pub async fn create(db: &Db, data: TodoPatch) -> Result<Todo, model::Error> {
+    pub async fn create(db: &Db, utx: &UserCtx, data: TodoPatch) -> Result<Todo, model::Error> {
         // Hardcoding it
         // let sql = "INSERT INTO todo (cid, title) VALUES ($1, $2) returning id, cid, title, status";
         // let query = sqlx::query_as::<_, Todo>(&sql)
@@ -53,7 +53,7 @@ impl TodoMac {
         Ok(todo)
     }
 
-    pub async fn list(db: &Db) -> Result<Vec<Todo>, model::Error> {
+    pub async fn list(db: &Db, _utx: &UserCtx) -> Result<Vec<Todo>, model::Error> {
         // Hardcoding it
         // let sql = "SELECT id, cid, title, status FROM todo ORDER BY id DESC";
 

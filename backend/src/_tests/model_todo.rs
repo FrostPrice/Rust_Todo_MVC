@@ -1,4 +1,7 @@
-use crate::model::{db::init_db, todo::TodoStatus};
+use crate::{
+    model::{db::init_db, todo::TodoStatus},
+    security::utx_from_token,
+};
 
 use super::{TodoMac, TodoPatch};
 
@@ -6,13 +9,14 @@ use super::{TodoMac, TodoPatch};
 async fn model_todo_create() -> Result<(), Box<dyn std::error::Error>> {
     // -- FIXTURE
     let db = init_db().await?;
+    let utx = utx_from_token("123").await?;
     let data_fx = TodoPatch {
         title: Some("test - model_todo_create 1".to_string()),
         ..Default::default()
     };
 
     // -- ACTION
-    let todo_created = TodoMac::create(&db, data_fx.clone()).await?;
+    let todo_created = TodoMac::create(&db, &utx, data_fx.clone()).await?;
 
     // -- CHECK
     // println!("\n\n->> {:?}", todo_created);
@@ -27,9 +31,10 @@ async fn model_todo_create() -> Result<(), Box<dyn std::error::Error>> {
 async fn model_todo_list() -> Result<(), Box<dyn std::error::Error>> {
     // -- FIXTURE
     let db = init_db().await?;
+    let utx = utx_from_token("123").await?;
 
     // -- ACTION
-    let todos = TodoMac::list(&db).await?;
+    let todos = TodoMac::list(&db, &utx).await?;
 
     // -- CHECK
     assert_eq!(2, todos.len());
