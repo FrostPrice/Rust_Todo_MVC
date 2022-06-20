@@ -7,7 +7,7 @@ CREATE TYPE todo_status_enum AS ENUM (
 -- Table Todo --
 CREATE TABLE todo (
     id bigserial,
-    cid bigint NOT NULL, -- create user id
+    cid bigint NOT NULL, -- creator user id
     ctime timestamp with time zone DEFAULT now(),
     title text NOT NULL,
     status todo_status_enum NOT NULL DEFAULT 'open'

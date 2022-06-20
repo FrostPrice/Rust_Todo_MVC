@@ -6,6 +6,7 @@ This is a fullstack Rust project, for learning Rust.
 
 ```sh
 ### Test for model
+cd backend
 cargo watch -q -c -w src/ -x 'test model_ -- --test-threads=1 --nocapture'
 ```
 
