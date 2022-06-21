@@ -5,9 +5,18 @@ This is a fullstack Rust project, for learning Rust.
 ## Dev Test
 
 ```sh
-### Test for model
+### Test for Model (Data)
 cd backend
 cargo watch -q -c -w src/ -x 'test model_ -- --test-threads=1 --nocapture'
+
+### Test for Web
+cargo watch -q -c -w src/ -x 'test web_ -- --test-threads=1 --nocapture'
+```
+
+## Dev Web
+
+```sh
+cargo watch -q -c -w src/ -x 'run -- ../frontend/web-folder'
 ```
 
 ## DB
