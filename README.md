@@ -9,13 +9,12 @@ This is a fullstack Rust project, for learning Rust.
 cd backend
 cargo watch -q -c -w src/ -x 'test model_ -- --test-threads=1 --nocapture'
 
-### Test for Web
+### Test for Web (Rest)
+cd backend
 cargo watch -q -c -w src/ -x 'test web_ -- --test-threads=1 --nocapture'
-```
 
-## Dev Web
-
-```sh
+### Test for the FrontEnd
+cd frontend
 cargo watch -q -c -w src/ -x 'run -- ../frontend/web-folder'
 ```
 

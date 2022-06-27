@@ -2,6 +2,7 @@ use thiserror::Error as ThisError;
 
 mod db;
 mod todo;
+pub use todo::{Todo, TodoMac, TodoPatch, TodoStatus};
 
 // re-export
 pub use db::init_db;
