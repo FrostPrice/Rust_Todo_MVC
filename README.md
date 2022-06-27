@@ -12,9 +12,12 @@ cargo watch -q -c -w src/ -x 'test model_ -- --test-threads=1 --nocapture'
 ### Test for Web (Rest)
 cd backend
 cargo watch -q -c -w src/ -x 'test web_ -- --test-threads=1 --nocapture'
+```
 
-### Test for the FrontEnd
-cd frontend
+## Dev Web
+
+```sh
+### Start Frontend Development Server
 cargo watch -q -c -w src/ -x 'run -- ../frontend/web-folder'
 ```
 
