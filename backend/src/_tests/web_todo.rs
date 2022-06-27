@@ -16,6 +16,7 @@ async fn web_todo_list() -> Result<()> {
     // -- ACTION
     let resp = warp::test::request()
         .method("GET")
+        .header("X-Auth-Token", "123") // .user_info_b64.sign_b64
         .path("/api/todos")
         .reply(&todo_apis)
         .await;
